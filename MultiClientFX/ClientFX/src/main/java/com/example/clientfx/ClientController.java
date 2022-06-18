@@ -39,7 +39,6 @@ public class ClientController {
         this.userName = optionalString.get();
 
         userView.getItems().add(new Label(userName));
-
         try {
             client = new Client(new Socket("localhost", 1234), userName, data -> {
                 addLabel(data.toString(), vbox_messages);
@@ -74,9 +73,10 @@ public class ClientController {
 
         Text text = new Text(msgFromServer);
         TextFlow textFlow = new TextFlow(text);
-        textFlow.setStyle(
-                "-fx-background-color: rgb(233,233,235); " +
-                        "-fx-background-radius: 20px;");
+        textFlow.setStyle("""
+                -fx-background-color: rgb(233,233,235);
+                -fx-background-radius: 20px;
+                """);
         textFlow.setPadding(new Insets(5, 10, 5, 10));
         hBox.getChildren().add(textFlow);
         Platform.runLater(() -> vBox.getChildren().add(hBox));
@@ -97,10 +97,12 @@ public class ClientController {
 
             Text text = new Text(messageToSend);
             TextFlow textFlow = new TextFlow(text);
-            textFlow.setStyle(
-                    "-fx-color: rgb(239,242,255);" +
-                            " -fx-background-color: rgb(15,125,242);" +
-                            " -fx-background-radius: 20px;");
+            textFlow.setStyle("""
+                     -fx-color: rgb(239,242,255);
+                     -fx-background-color: rgb(15,125,242);
+                     -fx-background-radius: 20px;
+                    """
+            );
             textFlow.setPadding(new Insets(5, 10, 5, 10));
             text.setFill(Color.color(0.934, .945, .996));
 
