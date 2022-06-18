@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ServerFX" />
+        <module name="ClientFX" />
+        <module name="Client" />
+        <module name="Server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Client" target="17" />
+      <module name="ClientFX" target="17" />
+      <module name="Server" target="17" />
+      <module name="ServerFX" target="17" />
+      <module name="SingleClientFX" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
