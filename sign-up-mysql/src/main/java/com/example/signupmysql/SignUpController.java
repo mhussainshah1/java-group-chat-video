@@ -52,4 +52,8 @@ public class SignUpController implements Initializable {
             DBUtils.changeScene(event, "login.fxml", "Log in!", null, null);
         }
     }
+
+    public void txtHandler(ActionEvent event) {
+        button_signup.fire();
+    }
 }
