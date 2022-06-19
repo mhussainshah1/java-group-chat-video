@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/MultiClientFX/ClientFX/pom.xml" />
         <option value="$PROJECT_DIR$/SingleClientFX/Client/pom.xml" />
         <option value="$PROJECT_DIR$/SingleClientFX/Server/pom.xml" />
+        <option value="$PROJECT_DIR$/sign-up-mysql/pom.xml" />
       </list>
     </option>
   </component>

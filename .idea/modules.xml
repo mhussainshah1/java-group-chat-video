@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/MultiClientFX/ServerFX/ServerFX.iml" filepath="$PROJECT_DIR$/MultiClientFX/ServerFX/ServerFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/SingleClientFX/SingleClientFX.iml" filepath="$PROJECT_DIR$/SingleClientFX/SingleClientFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-group-chat-video.iml" filepath="$PROJECT_DIR$/java-group-chat-video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sign-up-mysql/sign-up-mysql.iml" filepath="$PROJECT_DIR$/sign-up-mysql/sign-up-mysql.iml" />
     </modules>
   </component>
 </project>

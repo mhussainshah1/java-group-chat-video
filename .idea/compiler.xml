@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ServerFX" />
+        <module name="sign-up-mysql" />
         <module name="ClientFX" />
         <module name="Client" />
         <module name="Server" />
@@ -17,6 +18,7 @@
       <module name="ClientFX" target="17" />
       <module name="Server" target="17" />
       <module name="ServerFX" target="17" />
+      <module name="sign-up-mysql" target="17" />
       <module name="SingleClientFX" target="17" />
     </bytecodeTargetLevel>
   </component>
