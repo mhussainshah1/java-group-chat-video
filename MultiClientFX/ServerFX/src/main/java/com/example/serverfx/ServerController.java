@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 public class ServerController {
+    public AnchorPane root;
     @FXML
     private Button button_send;
     @FXML
@@ -40,8 +42,9 @@ public class ServerController {
         vbox_messages.heightProperty().addListener((observable, oldValue, newValue) -> sp_main.setVvalue((Double) newValue));
 
         Platform.runLater(() -> {
-            Stage stage = (Stage) button_send.getScene().getWindow();
+            Stage stage = (Stage) root.getScene().getWindow();
             stage.setOnCloseRequest(event -> {
+                System.out.println("Closed");
                 server.closeServerSocket();
                 Platform.exit();
                 System.exit(0);
@@ -50,10 +53,7 @@ public class ServerController {
 
         Thread ConnectionThread = new Thread(() -> server.startServer());
         ConnectionThread.start();
-
         //server.receiveMessageFromClient();
-
-
     }
 
     public void addLabel(String messageFromClient, VBox vBox) {

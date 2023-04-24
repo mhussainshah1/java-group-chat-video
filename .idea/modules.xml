@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SingleClientFX/Client/Client.iml" filepath="$PROJECT_DIR$/SingleClientFX/Client/Client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MultiClientFX/ClientFX/ClientFX.iml" filepath="$PROJECT_DIR$/MultiClientFX/ClientFX/ClientFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/MultiClientConsole/MultiClientConsole.iml" filepath="$PROJECT_DIR$/MultiClientConsole/MultiClientConsole.iml" />
       <module fileurl="file://$PROJECT_DIR$/MultiClientFX/MultiClientFX.iml" filepath="$PROJECT_DIR$/MultiClientFX/MultiClientFX.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SingleClientFX/Server/Server.iml" filepath="$PROJECT_DIR$/SingleClientFX/Server/Server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MultiClientFX/ServerFX/ServerFX.iml" filepath="$PROJECT_DIR$/MultiClientFX/ServerFX/ServerFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/SingleClientFX/SingleClientFX.iml" filepath="$PROJECT_DIR$/SingleClientFX/SingleClientFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-group-chat-video.iml" filepath="$PROJECT_DIR$/java-group-chat-video.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sign-up-mysql/sign-up-mysql.iml" filepath="$PROJECT_DIR$/sign-up-mysql/sign-up-mysql.iml" />
     </modules>
   </component>
 </project>

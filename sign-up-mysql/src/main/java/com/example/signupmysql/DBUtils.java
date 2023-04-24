@@ -43,8 +43,8 @@ public class DBUtils {
     public static void signUpUser(ActionEvent event, String username, String password, String favChannel) {
 
         ResultSet resultSet = null;
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx-video", "root", "password");
-             PreparedStatement psCheckUserExixts = connection.prepareStatement("""
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx_app", "root", "password");
+             PreparedStatement psCheckUserExits = connection.prepareStatement("""
                      SELECT *
                      FROM users
                      WHERE username = ?
@@ -54,8 +54,8 @@ public class DBUtils {
                      VALUES(?,?,?)
                      """);) {
 
-            psCheckUserExixts.setString(1, username);
-            resultSet = psCheckUserExixts.executeQuery();
+            psCheckUserExits.setString(1, username);
+            resultSet = psCheckUserExits.executeQuery();
 
             if (resultSet.isBeforeFirst()) {
                 System.out.println("User already exist");
@@ -84,7 +84,7 @@ public class DBUtils {
 
     public static void logInUser(ActionEvent event, String username, String password) {
         ResultSet resultSet = null;
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx-video", "root", "password");
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx_app", "root", "password");
              PreparedStatement preparedStatement = connection.prepareStatement("""
                      SELECT password, favChannel 
                      FROM users 

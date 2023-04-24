@@ -12,6 +12,7 @@ public class ClientHandler implements Runnable {
     private Consumer<Serializable> onReceiveCallback;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
+    private OutputStream outputStream;
     private String clientUserName;
 
     public ClientHandler(Socket socket, Consumer<Serializable> onReceiveCallback) {
@@ -31,19 +32,83 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
-        while (socket.isConnected()) {
-            try {
-                String messageFromClient = bufferedReader.readLine();
-                onReceiveCallback.accept(messageFromClient);
-                broadcastMessage(messageFromClient);
-            } catch (IOException e) {
-                //e.printStackTrace();
-                System.err.println("Error receiving from the client" + e);
-                closeEverything();
-                break;
-            }
+        try {
+            handleClientSocket();
+        } catch (IOException e) {
+            //e.printStackTrace();
+            System.err.println("Error receiving from the client" + e);
+            closeEverything();
         }
     }
+
+    private void handleClientSocket() throws IOException {
+        this.outputStream = socket.getOutputStream();
+        while (socket.isConnected()) {
+            String messageFromClient = bufferedReader.readLine();
+            String[] tokens = messageFromClient.split(" ");//StringUtils.split(line);
+            /*if (tokens != null && tokens.length > 0) {
+                String cmd = tokens[0];
+                if ("logoff".equalsIgnoreCase(cmd) || "quit".equalsIgnoreCase(cmd)) {
+                    handleLogoff();
+                    break;
+                } else if ("login".equalsIgnoreCase(cmd)) {
+                    handleLogin(outputStream, tokens);
+                } else if ("msg".equalsIgnoreCase(cmd)) {
+                    String[] tokensMsg = messageFromClient.split(" ", 3); //StringUtils.split(line, null, 3);
+                    handleMessage(tokensMsg);
+                } else if ("join".equalsIgnoreCase(cmd)) {
+                    handleJoin(tokens);
+                } else if ("leave".equalsIgnoreCase(cmd)) {
+                    handleLeave(tokens);
+                } else {
+                    String msg = "unknown " + cmd + "\r\n";
+                    outputStream.write(msg.getBytes());*/
+                    onReceiveCallback.accept(messageFromClient);
+                    broadcastMessage(messageFromClient);
+               /* }
+            }*/
+        }
+    }
+
+  /*  private void handleLogin(OutputStream outputStream, String[] tokens) throws IOException {
+        if (tokens.length == 3) {
+            String login = tokens[1];
+            String password = tokens[2];
+
+//            boolean found = login.equals("guest") && password.equals("guest") || (login.equals("jim") && password.equals("jim"));
+            boolean found = DBUtils.logInUser(login, password);
+            if (found) {
+                String msg = "ok login\r\n";
+                outputStream.write(msg.getBytes());
+                this.login = login;
+                System.out.println("User logged in successfully: " + login);
+
+
+
+                //send current user all other online logins
+                for (ClientHandler worker : clientHandlers) {
+                    if (worker.getLogin() != null) {
+                        if (!login.equals(worker.getLogin())) {
+                            String msg2 = "online " + worker.getLogin() + "\r\n";
+                            send(msg2);
+                        }
+                    }
+                }
+
+                //send other online users current user's status
+                String onlineMsg = "online " + login + "\r\n";
+                for (ClientHandler worker : clientHandlers) {
+                    if (!login.equals(worker.getLogin())) {
+                        worker.send(onlineMsg);
+                    }
+                }
+            } else {
+                String msg = "error login\r\n";
+                outputStream.write(msg.getBytes());
+                System.err.println("Login failed for " + login);
+            }
+        }
+    }*/
 
     public void broadcastMessage(String messageToSend) {
         for (ClientHandler clientHandler : clientHandlers) {
